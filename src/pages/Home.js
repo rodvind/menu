@@ -15,13 +15,15 @@ import {
   IonMenuButton,
   IonPage,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  IonFab,
+  IonFabButton
   } from '@ionic/react';
-import { book, build, colorFill, grid } from 'ionicons/icons';
+import { book, build, colorFill, grid, add } from 'ionicons/icons';
 import React from 'react';
 import './Home.css';
 
-const HomePage: React.FC = () => {
+const HomePage = props => {
   return (
     <IonPage>
       <IonHeader>
@@ -68,6 +70,11 @@ const HomePage: React.FC = () => {
             <IonLabel>Theme Your App</IonLabel>
           </IonItem>
         </IonList>
+        <IonFab vertical="bottom"  slot="fixed">
+          <IonFabButton onClick={() => props.history.push('/expense')}>
+            <IonIcon icon={add} />
+          </IonFabButton>
+        </IonFab>
       </IonContent>
     </IonPage>
   );
